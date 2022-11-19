@@ -18,7 +18,7 @@ import utils
 import constants
 from utils.colors import normalize_lab_image, normalize_lab_colors
 from constants import \
-    CHOICE_COLUMN, MIN_MAX_COLUMN, EMOTION_COLUMN, \
+    CHOICE_COLUMN, MIN_MAX_COLUMN, EMOTION_COLUMN, RATIONALE_COLUMN, \
     NUM_HUE_SHIFTS, HUE_SHIFT_NUM_COLORS_IN_PALETTE
 
 
@@ -140,7 +140,6 @@ def get_palette(convert_to_lab, image, colors, num_colors=6, normalize_inputs=Tr
     return palette
 
 
-
 HUE_SHIFT_DIRECTORY = os.path.join(constants.WIKIART_DIRECTORY, 'hue_shifts')
 HUE_SHIFT_PALETTE_DIRECTORY = os.path.join(HUE_SHIFT_DIRECTORY, 'palettes')
 
@@ -258,3 +257,79 @@ class PaletteApplicationDataset(Dataset, ABC):
 
         return image_filepath, hue_shift_filepath, src_image_palette, \
                src_image_tensor, hue_shift_palette, hue_shift_tensor
+
+
+class RationaleRetrievalDataset(Dataset):
+    def __init__(self, subset, image_filepaths_and_reps=(None, None), rationales=None):
+        self.subset = subset
+        self.image_filepaths, image_reps = image_filepaths_and_reps
+        self.rationales = rationales
+
+        with open(constants.FEELING_BLUE_SPLITS_FILE, 'r') as f:
+            split_filenames = json.load(f)
+
+        self.rows = []
+        for _, annotation in pd.read_csv(constants.FEELING_BLUE_ANNOTATIONS_FILE).iterrows():
+            image_ids_to_filenames = {
+                annotation['image%s_id' % i]: annotation['image%s_filename' % i] for i in range(1, 5)
+            }
+
+            selected_image_id = annotation[CHOICE_COLUMN]
+            if image_ids_to_filenames[selected_image_id] not in split_filenames[subset]:
+                continue
+
+            for other_image_id in sorted(image_ids_to_filenames.keys()):
+                if other_image_id == selected_image_id:
+                    continue
+
+                if image_ids_to_filenames[other_image_id] not in split_filenames[subset]:
+                    continue
+
+                if annotation[MIN_MAX_COLUMN] == 'MIN':
+                    min_image_filename = image_ids_to_filenames[selected_image_id]
+                    max_image_filename = image_ids_to_filenames[other_image_id]
+                elif annotation[MIN_MAX_COLUMN] == 'MAX':
+                    min_image_filename = image_ids_to_filenames[other_image_id]
+                    max_image_filename = image_ids_to_filenames[selected_image_id]
+                else:
+                    raise Exception("Unsupported min/max: %s" % (annotation[MIN_MAX_COLUMN]))
+
+                self.rows.append((
+                    os.path.join(constants.WIKIART_DIRECTORY, min_image_filename),
+                    os.path.join(constants.WIKIART_DIRECTORY, max_image_filename),
+                    annotation[EMOTION_COLUMN],
+                    annotation[RATIONALE_COLUMN],
+                    annotation[MIN_MAX_COLUMN]
+                ))
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __getitem__(self, idx):
+        min_image_filename, max_image_filename, emotion, rationale, min_max = self.rows[idx]
+
+        if self.image_filepaths is None:
+            assert self.image_reps is None
+
+            return (
+                min_image_filename,
+                max_image_filename,
+                F.one_hot(
+                    torch.tensor(constants.EMOTIONS.index(emotion)),
+                    num_classes=len(constants.EMOTIONS)
+                ).float(),
+                rationale,
+                min_max
+            )
+        else:
+            min_image_rep = self.image_reps[self.image_filepaths.index(min_image_filename)]
+            max_image_rep = self.image_reps[self.image_filepaths.index(max_image_filename)]
+
+            return (
+                min_image_rep,
+                max_image_rep,
+                constants.EMOTIONS.index(emotion),
+                self.rationales.index(rationale.lower()),
+                min_max
+            )
+
