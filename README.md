@@ -61,7 +61,7 @@ filenames and the values are the colorgram extraction.
 using the function `apply_hue_shift()` in [utils/colors.py](utils/colors.py).  The code expects these hue shifted images to be saved in
 `corpora/wikiart/hue_shifts`.  
 
-.Extracting the palettes for each of the hue shifted variants and saving them individually in 
+3. Extracting the palettes for each of the hue shifted variants and saving them individually in 
 `corpora/wikiart/hue_shifts/palettes`.
 
 While you can write code to do this yourself, the resulting palettes and hue-shifted images can be downloaded 
@@ -95,10 +95,7 @@ It requires that the images to be transformed are saved in the top level of the 
 ### Retrieving Rationales
 
 Retrieving rationales requires a pretrained RationaleRetriever.  The script to do so is [retrieve_rationales.py](retrieve_rationales.py).
-It requires the specification of an evaluation CSV that contains 3 columns: `less_image_filepath,more_image_filepath,emotion` where `less_image` is the
-image that you want "rationalized" as expressing `emotion` less and `more_image` is the image that you want "rationalized" as expressing `emotion` more.
-It will output a CSV at the specified target path with the same columns as the input CSV plus two additional columns: `less_rationales` and `more_rationales` 
-which will contain pipe (`|`) delimited strings of the top rationales for each direction.  Example usage:
+It requires the specification of an evaluation CSV that contains 3 columns: `less_image_filepath`, `more_image_filepath`, and `emotion` where `less_image` is the image that you want "rationalized" as expressing `emotion` less and `more_image` is the image that you want "rationalized" as expressing `emotion` more. It will output a CSV at the specified target path with the same columns as the input CSV plus two additional columns: `less_rationales` and `more_rationales` which will contain pipe (`|`) delimited strings of the top rationales for each direction.  Example usage:
 
 `retrieve_rationales('path/to/evaluation.csv', 'path/to/rationale_retriever.pt', 'path/to/output.csv')`
 
