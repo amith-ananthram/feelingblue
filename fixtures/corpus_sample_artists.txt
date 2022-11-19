@@ -24,8 +24,8 @@ From left to right, top to bottom:
 19 - Untitled, Ernst Wilhelm Nay, 1957
 20 - Springtime in Washington, Alma Woodley Thomas, 1971
 
-31 - Anomalia, Rodolfo Arico, 1969
-32 - White Torso and Blue Torso, Henri Matisse, 1944
-33 - Meditative Series VIII, Mark Tobey, 1954
-34 - Die Fahne Hoch!, Frank Stella, 1959
-35 - Le lilas blanc, Jean Fautrier, 1927
+21 - Anomalia, Rodolfo Arico, 1969
+22 - White Torso and Blue Torso, Henri Matisse, 1944
+23 - Meditative Series VIII, Mark Tobey, 1954
+24 - Die Fahne Hoch!, Frank Stella, 1959
+25 - Le lilas blanc, Jean Fautrier, 1927
