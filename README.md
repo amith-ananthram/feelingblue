@@ -95,7 +95,7 @@ It requires that the images to be transformed are saved in the top level of the 
 ### Retrieving Rationales
 
 Retrieving rationales requires a pretrained RationaleRetriever.  The script to do so is [retrieve_rationales.py](retrieve_rationales.py).
-It requires the specification of an evaluation CSV that contains 3 columns: `less_image_filepath`, `more_image_filepath`, and `emotion` where `less_image` is the image that you want "rationalized" as expressing `emotion` less and `more_image` is the image that you want "rationalized" as expressing `emotion` more. It will output a CSV at the specified target path with the same columns as the input CSV plus two additional columns: `less_rationales` and `more_rationales` which will contain pipe (`|`) delimited strings of the top rationales for each direction.  Example usage:
+It requires the specification of an evaluation CSV that contains 3 columns: `less_image_filepath`, `more_image_filepath`, and `emotion` where `less_image` is the image that you want "rationalized" as expressing `emotion` less and `more_image` is the image that you want "rationalized" as expressing `emotion` more. It will output a CSV at the specified target path with the same columns as the input CSV plus two additional columns: `less_rationales` and `more_rationales` which will contain double pipe (`||`) delimited strings of the top rationales for each direction.  Example usage:
 
 `retrieve_rationales('path/to/evaluation.csv', 'path/to/rationale_retriever.pt', 'path/to/output.csv')`
 
