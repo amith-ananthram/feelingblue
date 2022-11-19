@@ -38,7 +38,7 @@ def load_palette_applier(device, palette_applier_path):
     )
     palette_applier.load_state_dict(
         torch.load(
-            os.path.join(variant_dir, 'best_checkpoint.pt'),
+            palette_applier_path,
             map_location=device
         )
     )
