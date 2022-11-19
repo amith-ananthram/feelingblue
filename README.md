@@ -101,5 +101,9 @@ It requires the specification of an evaluation CSV that contains 3 columns: `les
 `python retrieve_rationales.py 'path/to/evaluation.csv' 'path/to/rationale_retriever.pt' 'path/to/output.csv'`
 
 
+## Acknowledgements
 
+We would like to express our gratitude to our annotators for their contributions and the artists whose work they 
+annotated for their wonderful art.  Additionally, we would like to thank our reviewers and Action Editor for their 
+thoughtful feedback.
 
