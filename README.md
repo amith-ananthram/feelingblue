@@ -79,7 +79,8 @@ recreate our experimental variant, please consult the config file [here](https:/
 
 ### Training the RationaleRetriever
 
-To train the RationaleRetriever, the entry script is [train_rationale_retriever.py](train_rationale_retriever.py).
+To train the RationaleRetriever, the entry script is [train_rationale_retriever.py](train_rationale_retriever.py).  To
+recreate our experimental variant, please consult the config file [here](https://drive.google.com/drive/folders/1NmxwxeVydREtIo8kprapzhu-0i_LJQxP?usp=share_link).
 
 ## Evaluation
 
@@ -90,7 +91,7 @@ Our pretrained models can be found [here](https://drive.google.com/drive/folders
 Transforming images requires a pretrained EmotionClassifier and PaletteApplier.  The script to do so is [transform_images.py](transform_images.py).
 It requires that the images to be transformed are saved in the top level of the directory you specify.  Example usage:
 
-`transform_images('path/to/image/directory', 'path/to/emotion_classifier.pt', 'path/to/palette_applier.pt', 'output_dir')`
+`python transform_images.py 'path/to/image/directory' 'path/to/emotion_classifier.pt' 'path/to/palette_applier.pt' 'output_dir'`
 
 ### Retrieving Rationales
 
@@ -100,7 +101,7 @@ image that you want "rationalized" as expressing `emotion` less and `more_image`
 It will output a CSV at the specified target path with the same columns as the input CSV plus two additional columns: `less_rationales` and `more_rationales` 
 which will contain pipe (`|`) delimited strings of the top rationales for each direction.  Example usage:
 
-`retrieve_rationales('path/to/evaluation.csv', 'path/to/rationale_retriever.pt', 'path/to/output.csv')`
+`python retrieve_rationales.py 'path/to/evaluation.csv' 'path/to/rationale_retriever.pt' 'path/to/output.csv'`
 
 
 

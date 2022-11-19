@@ -1,2 +1,3 @@
 from .emotion_classifier import EmotionClassifier
 from .palette_applier import PaletteApplier
+from .rationale_retriever import RationaleRetriever

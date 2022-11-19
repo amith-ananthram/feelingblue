@@ -17,7 +17,9 @@ import torchvision.transforms.functional as TF
 import utils
 import constants
 from utils.colors import normalize_lab_image, normalize_lab_colors
-from constants import NUM_HUE_SHIFTS, HUE_SHIFT_NUM_COLORS_IN_PALETTE
+from constants import \
+    CHOICE_COLUMN, MIN_MAX_COLUMN, EMOTION_COLUMN, \
+    NUM_HUE_SHIFTS, HUE_SHIFT_NUM_COLORS_IN_PALETTE
 
 
 def get_default_transformation(convert_to_lab=False, normalize_inputs=True):
@@ -36,11 +38,6 @@ def get_default_transformation(convert_to_lab=False, normalize_inputs=True):
         transformations.append(lambda image: image * 255)
 
     return transforms.Compose(transformations)
-
-
-CHOICE_COLUMN = 'selected_image_id'
-MIN_MAX_COLUMN = 'min/max'
-EMOTION_COLUMN = 'emotion'
 
 
 class EmotionClassificationDataset(Dataset):
