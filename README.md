@@ -110,6 +110,6 @@ It requires the specification of an evaluation CSV that contains 3 columns: `les
 ## Acknowledgements
 
 We would like to express our gratitude to our annotators for their contributions and the artists whose work they 
-annotated for their wonderful art.  Additionally, we would like to thank our reviewers and Action Editor for their 
+annotated for their wonderful art.  Additionally, we would like to thank our reviewers and Action Editor at TACL for their 
 thoughtful feedback.
 
