@@ -1,4 +1,4 @@
-# FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context
+# FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context (accepted at TACL 2022)
 
 ![FeelingBlue](fixtures/corpus_sample.png)
 
