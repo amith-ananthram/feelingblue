@@ -1,10 +1,12 @@
 # FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context (accepted at TACL 2022)
 
+While the link between color and emotion has been widely studied, how context-based changes in color impact the intensity of perceived emotions is not well understood.  In this work, we present a new multimodal dataset for exploring the emotional connotation of color as mediated by line, stroke, texture, shape and language. Our dataset, *FeelingBlue*, is a collection of 19,788 4-tuples of abstract art ranked by annotators according to their evoked emotions and paired with rationales for those annotations. Using this corpus, we present a baseline for a new task: *Justified Affect Transformation*. Given an image _I_, the task is to 1) recolor _I_ to enhance a specified emotion _e_ and 2) provide a textual justification for the change in _e_. Our model is an ensemble of deep neural networks which takes _I_, generates an emotionally transformed color palette _p_ conditioned on _I_, applies _p_ to _I_, and then justifies the color transformation in text via a visual-linguistic model. Experimental results shed light on the emotional connotation of color in context, demonstrating both the promise of our approach on this challenging task and the considerable potential for future investigations enabled by our corpus
+
 ![FeelingBlue](fixtures/corpus_sample.png)
 
 Representative examples spanning **FeelingBlue**'s emotion subsets. Each image in an emotion subset has a score between 
 -1 and 1 derived from its Best-Worst Scaling annotations.  Images selected as the _least_/_most_ emotional in a 4-tuple 
-(not shown here) have rationales explaining why they are _less_/_more_ emotional than the rest. The names and artists 
+(not shown here) have rationales explaining why they are _less_/_more_ emotional than the rest. The names and creators 
 of these works can be found [here](fixtures/corpus_sample_artists.txt).
 
 ## Dataset
