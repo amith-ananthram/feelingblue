@@ -1,6 +1,7 @@
 # FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context
 
 ![FeelingBlue](fixtures/corpus_sample.png)
+
 Representative examples spanning **FeelingBlue**'s emotion subsets. Each image in an emotion subset has a score between 
 -1 and 1 derived from its Best-Worst Scaling annotations.  Images selected as the _least_/_most_ emotional in a 4-tuple 
 (not shown here) have rationales explaining why they are _less_/_more_ emotional than the rest. The names and artists 
@@ -70,3 +71,4 @@ The identifiers and filenames match those in the raw 4-tuple data.
 Our pretrained models can be found [here](https://drive.google.com/drive/folders/1NmxwxeVydREtIo8kprapzhu-0i_LJQxP?usp=share_link).
 
 ### Transforming Images
+
