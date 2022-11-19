@@ -5,7 +5,7 @@
 Representative examples spanning **FeelingBlue**'s emotion subsets. Each image in an emotion subset has a score between 
 -1 and 1 derived from its Best-Worst Scaling annotations.  Images selected as the _least_/_most_ emotional in a 4-tuple 
 (not shown here) have rationales explaining why they are _less_/_more_ emotional than the rest. The names and artists 
-behind these works can be found [here](fixtures/corpus_sample_artists.txt).
+of these works can be found [here](fixtures/corpus_sample_artists.txt).
 
 ## Dataset
 
