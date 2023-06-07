@@ -1,6 +1,6 @@
 # FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context (accepted at TACL 2022)
 
-Authors: Amith Ananthram, Olivia Winn, Smaranda Muresan (Columbia University)
+Authors: [Amith Ananthram](mailto:amith@cs.columbia.edu), [Olivia Winn](mailto:olivia@cs.columbia.edu), [Smaranda Muresan](mailto:smara@cs.columbia.edu) (Columbia University)
 
 Full paper: [LINK](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00540/115241/FeelingBlue-A-Corpus-for-Understanding-the)
 
