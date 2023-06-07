@@ -1,4 +1,4 @@
-# FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context (accepted at TACL 2022)
+# FeelingBlue: A Corpus for Understanding the Emotional Connotation of Color in Context (accepted at TACL 2022, presented at ACL 2023)
 
 Authors: [Amith Ananthram](mailto:amith@cs.columbia.edu), [Olivia Winn](mailto:olivia@cs.columbia.edu), [Smaranda Muresan](mailto:smara@cs.columbia.edu) (Columbia University)
 
