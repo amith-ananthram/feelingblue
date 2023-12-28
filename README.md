@@ -4,6 +4,8 @@ Authors: [Amith Ananthram](mailto:amith@cs.columbia.edu), [Olivia Winn](mailto:o
 
 Full paper: [LINK](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00540/115241/FeelingBlue-A-Corpus-for-Understanding-the)
 
+ACL 2023 poster: [LINK](https://github.com/amith-ananthram/feelingblue/blob/main/acl_2023_poster.pdf)
+
 ![FeelingBlue](fixtures/corpus_sample.png)
 
 Representative examples spanning **FeelingBlue**'s emotion subsets. Each image in an emotion subset has a score between 
